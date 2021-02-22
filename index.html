@@ -16,7 +16,7 @@
 
     <section class="row">
         <div class="small-6 columns">
-            <img class="godzilla monster" src="/images/godzilla.PNG" alt="Godzilla">
+            <img class="godzilla monster" src="https://i.ibb.co/wLZz6rN/godzilla.png" alt="Godzilla">
             <h1 class="text-center">Godzilla</h1>
             <div class="healthbar">
                 <div :style="{width: godzilla_health + '%'}" class="healthbar text-center" style="background-color: #79d70f; margin: 0; color: white;">
@@ -25,7 +25,7 @@
             </div>
         </div>
         <div class="small-6 columns">
-            <img class="muto monster" :style="" src="/images/muto.PNG" alt="Muto">
+            <img class="muto monster" :style="" src="https://i.ibb.co/3Ft1FgZ/muto.png" alt="Muto">
             <h1 class="text-center">Muto</h1>
             <div class="healthbar">
                 <div :style="{width: muto_health + '%'}" class="healthbar text-center" style="background-color: #79d70f; margin: 0; color: white;">
@@ -43,13 +43,13 @@
 
     <section class="row controls gameButton" v-if="is_game_started">
         <div class="small-12 columns">
-            <input class="newButton" @click="attack" id="attack" type="image" src="/images/sword.PNG" alt="attack"/>
+            <input class="newButton" @click="attack" id="attack" type="image" src="https://i.ibb.co/Wt26qSq/sword.png" alt="attack"/>
             
-            <input :disabled="special_disable" class="newButton" @click="special_attack" id="special-attack" type="image"  src="/images/critical.PNG" alt="special-attack"/>
+            <input :disabled="special_disable" class="newButton" @click="special_attack" id="special-attack" type="image"  src="https://i.ibb.co/6DfhR8c/critical.png" alt="special-attack"/>
 
-            <input :disabled="healing_disable" id="heal" @click="healing" class="newButton" type="image" src="/images/heartbeat.PNG" alt="Heal"/>
+            <input :disabled="healing_disable" id="heal" @click="healing" class="newButton" type="image" src="https://i.ibb.co/ZBFPvz7/heartbeat.png" alt="Heal"/>
 
-            <input class="newButton" @click="end_game" id="give-up" type="image" src="/images/stop.PNG" alt="give-up" />
+            <input class="newButton" @click="end_game" id="give-up" type="image" src="https://i.ibb.co/DznkpG9/stop.png" alt="give-up" />
 
         </div>
     </section>
