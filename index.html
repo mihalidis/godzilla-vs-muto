@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Canavar Avı</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400&display=swap" rel="stylesheet">
+    
+    <!-- Css -->
+    <link rel="stylesheet" href="css/foundation.min.css">
+    <link rel="stylesheet" href="css/app.css">
+</head>
+<body>
+<div id="app">
+
+    <section class="row">
+        <div class="small-6 columns">
+            <img class="godzilla monster" src="/images/godzilla.PNG" alt="Godzilla">
+            <h1 class="text-center">Godzilla</h1>
+            <div class="healthbar">
+                <div :style="{width: godzilla_health + '%'}" class="healthbar text-center" style="background-color: #79d70f; margin: 0; color: white;">
+                    {{ godzilla_health }} %
+                </div>
+            </div>
+        </div>
+        <div class="small-6 columns">
+            <img class="muto monster" :style="" src="/images/muto.PNG" alt="Muto">
+            <h1 class="text-center">Muto</h1>
+            <div class="healthbar">
+                <div :style="{width: muto_health + '%'}" class="healthbar text-center" style="background-color: #79d70f; margin: 0; color: white;">
+                    {{ muto_health }} %
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <section class="row controls startGame" v-if="!is_game_started">
+        <div class="small-12 columns">
+            <button class="newButton" @click="startGame" id="start-game">Play</button>
+        </div>
+    </section>
+
+    <section class="row controls gameButton" v-if="is_game_started">
+        <div class="small-12 columns">
+            <input class="newButton" @click="attack" id="attack" type="image" src="/images/sword.PNG" alt="attack"/>
+            
+            <input :disabled="special_disable" class="newButton" @click="special_attack" id="special-attack" type="image"  src="/images/critical.PNG" alt="special-attack"/>
+
+            <input :disabled="healing_disable" id="heal" @click="healing" class="newButton" type="image" src="/images/heartbeat.PNG" alt="Heal"/>
+
+            <input class="newButton" @click="end_game" id="give-up" type="image" src="/images/stop.PNG" alt="give-up" />
+
+        </div>
+    </section>
+
+    <section class="row log" v-if="logs.length > 0">
+        <div class="small-12 columns">
+            <ul>
+                <li 
+                v-for="value in logs" 
+                :class="{ 
+                    'godzilla-turn' : value.player == 'godzilla',
+                    'muto-turn' : value.player == 'muto',
+                    'healing-turn' : value.player == 'healing',
+                    'special-turn' : value.player == 'special',
+                    }" 
+                >
+                    {{ value.log_text }}
+                </li>               
+            </ul>
+        </div>
+    </section>
+</div>
+<footer class="footer"> 
+    <div>
+            Icons made by 
+            <a href="https://www.freepik.com" title="Freepik">Freepik</a> 
+            from 
+            <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com<a>          
+    </div> 
+</footer>
+<script src="app.js"></script>
+</body>
+</html>
